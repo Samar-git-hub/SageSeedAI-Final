@@ -11,8 +11,6 @@ import Resource from './pages/resource.jsx';
 import About from './pages/about.jsx';
 import MarketAnalysis from './pages/market analysis.jsx';
 
-const GEMINI_API_KEY = 'AIzaSyDYdbR-8HEDxMdFrExJ3X3-1Fas7xplkOo';
-
 function App() {
   const [context, setContext] = useState("");
 
@@ -25,6 +23,7 @@ function App() {
 
   const generateAnswer = async (question) => {
     try {
+      const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
       if (!GEMINI_API_KEY) {
         throw new Error("API key is undefined. Make sure to set VITE_GEMINI_API_KEY in your .env file");
       }
