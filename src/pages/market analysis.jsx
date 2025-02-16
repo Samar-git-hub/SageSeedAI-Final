@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MarketAnalysisWindow = ({ generateAnswer }) => {
   const [messages, setMessages] = useState([
     {
-      text: "Welcome to SageSeed's AI-Powered Market & Competitive Analysis! 📊 Describe your startup, and I'll provide a comprehensive market insights report.",
+      text: "Welcome to SageSeed's AI-Powered Market & Competitive Analysis! Describe your startup, and I'll provide a comprehensive market insights report.",
       user: "AI"
     }
   ]);
@@ -86,12 +86,15 @@ Provide a clear, structured, and actionable market analysis.
         // Get AI response using generateAnswer
         const analysis = await generateAnswer(enhancedPrompt);
 
+        // Remove asterisks from AI response
+        const cleanAnalysis = analysis.replace(/\*/g, '');
+
         // Add AI response
-        setMessages(prev => [...prev, { text: analysis, user: "AI" }]);
+        setMessages(prev => [...prev, { text: cleanAnalysis, user: "AI" }]);
       } catch (error) {
         // Handle error
         setMessages(prev => [...prev, { 
-          text: "Oops! Our market analysis tool encountered a hiccup. Let's try again! 🤖", 
+          text: "Oops! Our market analysis tool encountered a hiccup. Let's try again!", 
           user: "AI" 
         }]);
       } finally {
@@ -117,7 +120,7 @@ Provide a clear, structured, and actionable market analysis.
       
       <div style={styles.chatBox} className="chat-box">
         <div style={styles.chatHeader}>
-          <h2 style={styles.chatTitle}>📊 Market & Competitive Analysis</h2>
+          <h2 style={styles.chatTitle}>Market & Competitive Analysis</h2>
           <p style={styles.chatSubtitle}>AI-Powered Strategic Insights</p>
         </div>
 
@@ -133,7 +136,7 @@ Provide a clear, structured, and actionable market analysis.
           ))}
           {isThinking && (
             <div style={styles.aiMessage} className="message ai">
-              Conducting deep market analysis... 🔍📈
+              Conducting deep market analysis... 
             </div>
           )}
           <div ref={messagesEndRef} />

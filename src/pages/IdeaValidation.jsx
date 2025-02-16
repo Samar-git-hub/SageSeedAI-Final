@@ -83,8 +83,11 @@ Provide a clear, structured, and actionable analysis.
         // Get AI response using generateAnswer
         const analysis = await generateAnswer(enhancedPrompt);
 
+        // Remove asterisks from AI response
+        const cleanAnalysis = analysis.replace(/\*/g, '');
+
         // Add AI response
-        setMessages(prev => [...prev, { text: analysis, user: "AI" }]);
+        setMessages(prev => [...prev, { text: cleanAnalysis, user: "AI" }]);
       } catch (error) {
         // Handle error
         setMessages(prev => [...prev, { 
@@ -114,7 +117,7 @@ Provide a clear, structured, and actionable analysis.
       
       <div style={styles.chatBox} className="chat-box">
         <div style={styles.chatHeader}>
-          <h2 style={styles.chatTitle}>🚀 Startup Idea Validator Pro</h2>
+          <h2 style={styles.chatTitle}>Startup Idea Validator Pro</h2>
           <p style={styles.chatSubtitle}>Comprehensive Analysis & Insights</p>
         </div>
 
@@ -130,7 +133,7 @@ Provide a clear, structured, and actionable analysis.
           ))}
           {isThinking && (
             <div style={styles.aiMessage} className="message ai">
-              Analyzing your startup idea in depth... 🔍✨
+              Analyzing your startup idea in depth... 
             </div>
           )}
           <div ref={messagesEndRef} />
