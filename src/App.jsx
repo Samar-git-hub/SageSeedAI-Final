@@ -29,18 +29,18 @@ function App() {
       }
 
       const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${GEMINI_API_KEY}`,
+        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`,
         method: "post",
         data: {
           "contents": [{
-            "parts":[{"text": `Context: ${context}\n\nQuestion: ${question}`}]
+            "parts": [{"text": `Context: ${context}\n\nQuestion: ${question}`}]
           }]
         }
       });
       
       return response.data.candidates[0].content.parts[0].text;
     } catch (error) {
-      console.error("Error generating answer:", error);
+      console.error("Error generating answer:", error.response ? error.response.data : error.message);
       return "Sorry, there was an error processing your request.";
     }
   };
