@@ -1,8 +1,7 @@
-# React + Vite
+# Sage Seed AI - An AI powered platform to help seed stage founders or budding entrepreneurs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Live Platform
+[Sage Seed AI](https://sage-seed-ai.vercel.app/)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Demo Video
+[Watch on YouTube](https://youtu.be/0EXM-JdeCYc?si=UeWRfNgMXq4SHjh_)
